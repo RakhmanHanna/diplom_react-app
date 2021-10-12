@@ -1,0 +1,14 @@
+.header-navbar {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 30px;
+  background-color: #416696;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.header-navbar a {
+  color: #fff;
+  text-decoration: none;
+}
