@@ -1,6 +1,10 @@
-.header-navbar {
+.wrapper {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1100px;
+}
+
+.header-navbar {
+  width: 100%;
   padding: 30px;
   background-color: #416696;
   display: flex;
