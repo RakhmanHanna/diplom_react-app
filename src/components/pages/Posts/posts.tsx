@@ -6,23 +6,29 @@ const Cards = () => {
     <div className="wrapper">
       <div className="site-card-border-less-wrapper">
         <Card title="Card title" bordered={false} style={{ width: 300 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <button>Show comments</button>
+          <p>body</p>
+          <p>name</p>
+          <button data-modal className="card-btn">
+            Show comments
+          </button>
         </Card>
       </div>
       <div className="site-card-border-less-wrapper">
         <Card title="Card title" bordered={false} style={{ width: 300 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <button>Show comments</button>
+          <p>body</p>
+          <p>name</p>
+          <button data-modal className="card-btn">
+            Show comments
+          </button>
         </Card>
       </div>
       <div className="site-card-border-less-wrapper">
         <Card title="Card title" bordered={false} style={{ width: 300 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <button>Show comments</button>
+          <p>body</p>
+          <p>name</p>
+          <button data-modal className="card-btn">
+            Show comments
+          </button>
         </Card>
       </div>
     </div>
