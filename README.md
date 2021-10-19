@@ -29,9 +29,36 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TO DO list
+Адрес API сервера: https://jsonplaceholder.typicode.com
+Список users хранится в контексте над всем веб-приложением
+В верхней части страницы должна быть навигация по приложению
+Проект должен содержать  страницы: Posts, Albums, Todos, Users
+
+
+Страница Posts (/posts):
+Отображать posts на странице в виде карточек (можно использовать компонент Card из Antd) по три в ряд.
+Карточка должна содержать в себе title, body, name юзера (можно использовать компонент Avatar из Antd) и кнопку “Show comments”. 
+По клику на кнопку “Show comments” открывается модальное окно, где мы можем увидеть вверху сам пост, а ниже списком выводятся комментарии (эндпоинт ‘/comments’) к соответствующему посту (можно использовать компонент Comment из Antd) 
+
+Страница Albums (/albums):
+Отображать albums ввиде таблицы (можно использовать компонент Table из Antd) с колонками “User name”, “Album title” и “Action”(в этой колонке у каждого альбома должна быть своя кнопка “Show photos”)
+По клику на кнопку “Show photos” мы переходим на страницу текущего альбома (/albums/:albumId) и отображаем фотки плиткой по пять в линию
+
+Страница Todos (/todos):
+Отображать todos небольшими карточками по 4 в ряд.
+Карточка должна в себе содержать title, name юзера (можно использовать компонент Avatar из Antd) и completed ввиде галочки или крестика
+При наведении на name должен появляться попап (компонент Popover из Antd) с информацией о юзере
+В попапе отображается информация о юзере: name, email, phone, address (street, suite, city)
+Вверху страницы добавить три фильтра и кнопку “Применить фильтры”
+Три фильтра: по имени юзера(инпут), по названию тудушки(инпут), по статусу Completed(компонент Select из Antd)
+После введенных значений в инпуты, фильтр применяется по клику на кнопку “Применить фильтры”.
+
+Страница Users (/users):
+Отображать users списком (компонент List из Antd)
+Отображаемая информация для юзера: id, name, email
+
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
