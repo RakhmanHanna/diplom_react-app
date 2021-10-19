@@ -1,12 +1,13 @@
-import React from 'react';
-import { createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { USERS_ENDPOINT } from '../constants/endpoints';
+import { getRequest, openNotification } from './../utils/index';
 
-interface IProps {
+export interface IProps {
   children: JSX.Element;
 }
 
 interface IUser {
-  _id: string;
+  id: number;
   name: string;
   username: string;
   email: string;
@@ -16,33 +17,46 @@ interface IUser {
     city: string;
     zipcode: string;
     geo: {
-      lat: number;
-      Ing: number;
+      lat: string;
+      lng: string;
     };
-    phone: string;
-    website: string;
-    company: {
-      name: string;
-      catchPhrase: string;
-      bs: string;
-    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
   };
 }
 
 interface IUserContext {
-  user: IUser | null;
+  users: IUser[];
 }
 
 export const UserContext = createContext<IUserContext>({
-  user: null,
+  users: [], // начальное значение в контексте(как в useState)
 });
 
-export const UserContextProvider = (props: IProps) => {
-  const userInfo = localStorage.getItem('user');
-  const user = userInfo !== null ? JSON.parse(userInfo) : null;
+export const UserContextProvider = (prosp: IProps) => {
+  const [users, setUsers] = useState<IUser[]>([]);
+
+  const getUsers = () => {
+    getRequest(USERS_ENDPOINT)
+      .then((res) => setUsers(res.data))
+      .catch((err) =>
+        openNotification(err.response.data.error, err.response.data.message)
+      );
+  };
+
+  useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <UserContext.Provider value={{ user: user }}>
-      {props.children}
+    <UserContext.Provider value={{ users: users }}>
+      {prosp.children}
     </UserContext.Provider>
   );
 };

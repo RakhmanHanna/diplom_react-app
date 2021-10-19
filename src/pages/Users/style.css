@@ -1,0 +1,8 @@
+.users-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ant-card-body p {
+  color: rgb(133, 58, 114) !important;
+}

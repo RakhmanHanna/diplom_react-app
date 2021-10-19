@@ -1,0 +1,32 @@
+.posts-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.posts-row .ant-card {
+  width: 25% !important;
+  margin-right: 50px !important;
+  margin-bottom: 50px !important;
+}
+
+.ant-modal-content {
+  box-shadow: none !important;
+}
+
+.current-post {
+  text-align: center;
+}
+
+.current-post .post-title {
+  font-weight: 700;
+}
+
+.current-post .ant-card {
+  background-color: rgba(0, 0, 0, 0.054);
+}
+.current-post {
+  width: 100%;
+}
+.ant-card-body {
+  width: 100%;
+}

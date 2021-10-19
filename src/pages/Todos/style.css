@@ -1,0 +1,16 @@
+.todos-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.ant-card {
+  width: 20% !important;
+  margin-right: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+.user-name {
+  color: rgb(133, 58, 114) !important;
+}

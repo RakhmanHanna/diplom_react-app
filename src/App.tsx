@@ -1,47 +1,37 @@
-import React from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   useHistory,
-// } from 'react-router-dom';
-import Header from '../src/components/blocks/Navbar/navbar';
-import Cards from './components/pages/Posts/posts';
-import Modal from './components/pages/Posts/modal/modal';
-
+import {
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+} from 'react-router-dom';
 import './App.css';
-// import { UserContextProvider } from './context/userContext';
+import { UserContextProvider } from './context/userContext';
+import AlbumsPage from './pages/Albums';
+import PostsPage from './pages/Posts';
+import TodosPage from './pages/Todos';
+import UsersPage from './pages/Users/index';
 
-// const Routes = () => {
-//   const history = useHistory();
-//   const token = localStorage.getItem('token');
-//   useEffect(() => {
-//     if (!token) {
-//       history.push('/signIn');
-//     }
-
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [token]);
-//   return (
-//     <Switch>
-//       <Route exact path="/posts" component={Cards} />
-//       <Route exact path="/modal" component={Modal} />
-//       <Route component={() => <>404: Page not found</>} />
-//     </Switch>
-//   );
-// };
+const Routes = () => {
+  return (
+    <Switch>
+      <Redirect exact path="/" to="posts" />
+      <Route exact path="/albums" component={AlbumsPage} />
+      <Route exact path="/posts" component={PostsPage} />
+      <Route exact path="/todos" component={TodosPage} />
+      <Route exact path="/users" component={UsersPage} />
+      <Route component={() => <> 404: Page not found </>} />
+    </Switch>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <UserContextProvider>
+      <UserContextProvider>
         <Router>
           <Routes />
         </Router>
-      </UserContextProvider> */}
-      <Cards />
-      <Modal />
+      </UserContextProvider>
     </div>
   );
 }

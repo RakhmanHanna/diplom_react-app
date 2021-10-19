@@ -1,0 +1,17 @@
+.ant-layout-header {
+  margin-bottom: 20px;
+}
+h1 {
+  margin-bottom: 60px !important;
+  color: rgb(224, 62, 184) !important;
+}
+.ant-layout-header {
+  background-color: rgb(133, 58, 114) !important;
+}
+.ant-menu-dark.ant-menu-horizontal {
+  background-color: rgb(133, 58, 114) !important;
+}
+
+.ant-menu-item a::before {
+  color: #fff !important;
+}
