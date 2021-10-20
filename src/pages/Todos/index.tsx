@@ -103,11 +103,10 @@ const TodosPage = () => {
             <SearchOutlined />
           </Button>
         </Space>
-        <h1>Todos Page</h1>
         <div className="todos-row">
           {filteredTodos.map((todosItem) => {
             if (todosItem.length) {
-              return <div> Ты все верно сделал</div>;
+              return <div>Success</div>;
             }
           })}
           {todos.map((item) => {
