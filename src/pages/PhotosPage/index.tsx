@@ -1,12 +1,12 @@
 import { PHOTOS_ENDPOINT } from '../../constants/endpoints';
 import PageWrapper from '../../components/wrappers/PageWrapper/index';
-import { getRequest } from './../../utils/index';
+import { getRequest } from '../../utils/index';
 import { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import './style.scss';
 import { UserContext } from '../../context/userContext';
 import { Image } from 'antd';
-import AlbumImage from './../../components/AlbumImages/index';
+import AlbumImage from '../../components/AlbumImages/index';
 
 interface IPhoto {
   albumId: number;

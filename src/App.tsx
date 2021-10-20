@@ -10,7 +10,7 @@ import AlbumsPage from './pages/Albums';
 import PostsPage from './pages/Posts';
 import TodosPage from './pages/Todos';
 import UsersPage from './pages/Users/index';
-import PhotoPage from './pages/PhotoPage/index';
+import PhotosPage from './pages/PhotosPage/index';
 
 const Routes = () => {
   return (
@@ -20,6 +20,7 @@ const Routes = () => {
       <Route exact path="/posts" component={PostsPage} />
       <Route exact path="/todos" component={TodosPage} />
       <Route exact path="/users" component={UsersPage} />
+      <Route exact path="/users" component={PhotosPage} />
       <Route component={() => <> 404: Page not found </>} />
     </Switch>
   );
