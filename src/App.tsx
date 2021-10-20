@@ -16,11 +16,11 @@ const Routes = () => {
   return (
     <Switch>
       <Redirect exact path="/" to="posts" />
+      <Route exact path="/users" component={UsersPage} />
       <Route exact path="/posts" component={PostsPage} />
       <Route exact path="/todos" component={TodosPage} />
-      <Route exact path="/users" component={UsersPage} />
-      <Route exact path="/albums" component={AlbumsPage} />
-      <Route exact path="/users" component={PhotosPage} />
+      <Route exact path="/albums/:id" component={AlbumsPage} />
+      <Route exact path="/photos" component={PhotosPage} />
       <Route component={() => <> 404: Page not found </>} />
     </Switch>
   );

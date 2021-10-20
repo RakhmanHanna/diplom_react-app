@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { getRequest } from '../../utils/index';
-import { ALBUMS_ENDPOINT } from '../../constants/endpoints';
+import { ALBUMS_ENDPOINT, ALBUMS_PHOTOS } from '../../constants/endpoints';
 import PageWrapper from '../../components/wrappers/PageWrapper/index';
 import { Table, Button } from 'antd';
 import { openNotification } from './../../utils/index';
@@ -37,15 +37,12 @@ const AlbumsPage = () => {
   const columns = [
     {
       title: 'User Name',
-      render: (arr: any) =>
-        users.map((user) => {
-          if (
-            user.id ===
-            albumItems.find((item) => item.userId === arr.id)?.userId
-          ) {
-            return user.name;
-          }
-        }),
+      render: (userId: any) => {
+        const username = users.find((user) => user.id === userId)?.username;
+        return username;
+      },
+      dataIndex: 'userId',
+      key: 'userId',
     },
     {
       title: 'Album Title',
@@ -54,24 +51,23 @@ const AlbumsPage = () => {
     },
     {
       title: 'Actions',
-      dataIndex: 'actions',
-      key: 'actions',
+      dataIndex: 'id',
+      key: 'id',
       // render: () => <Link to={`/albums/${albumItems.find}`}>Show Photos</Link>,
-      render: () => (
-        <Button
-          key="submit"
-          type="primary"
-          onClick={() =>
-            history.push(
-              `${window.location.pathname}/${
-                albumItems.find((item) => item.userId)?.userId
-              }`
-            )
-          }
-        >
-          Show Photos
-        </Button>
-      ),
+      render: (photoId: any) => {
+        const albumsId = users.find((item) => item.id === photoId)?.id;
+        return (
+          <Button
+            key="submit"
+            type="primary"
+            onClick={() =>
+              history.push(`${window.location.pathname}/${photoId}`)
+            }
+          >
+            Show Photos
+          </Button>
+        );
+      },
     },
   ];
 
