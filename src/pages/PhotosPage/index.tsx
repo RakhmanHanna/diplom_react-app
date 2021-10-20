@@ -16,7 +16,7 @@ interface IPhoto {
   thumbnailUrl: string;
 }
 
-const PhotoPage = () => {
+const PhotosPage = () => {
   const albumId = window.location.pathname.split('/')[2];
   const [photos, setPhotos] = useState<IPhoto[]>([]);
   const getPhotos = () => {
@@ -46,4 +46,4 @@ const PhotoPage = () => {
   );
 };
 
-export default PhotoPage;
+export default PhotosPage;
