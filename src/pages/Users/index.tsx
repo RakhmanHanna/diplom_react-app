@@ -14,13 +14,14 @@ const UsersPage = () => {
           {users.map((user) => {
             return (
               <Card
+                className="user-card"
                 key={user.id}
-                title={user.id}
+                title={user.name}
                 bordered={true}
                 style={{ width: 300 }}
               >
-                <p>{user.name}</p>
                 <p>{user.email}</p>
+                <p>{user.id}</p>
               </Card>
             );
           })}

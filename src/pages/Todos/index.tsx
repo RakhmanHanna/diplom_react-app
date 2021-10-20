@@ -1,27 +1,34 @@
 import { useContext, useEffect, useState } from 'react';
 import PageWrapper from '../../components/wrappers/PageWrapper/index';
-import { Card, Popover, Checkbox, Avatar, Select } from 'antd';
+import { Card, Popover, Checkbox, Avatar, Select, Input, Button } from 'antd';
 import { getRequest, openNotification } from './../../utils/index';
 import { TODOS_ENDPOINT } from '../../constants/endpoints';
 import './style.css';
 import { UserContext } from '../../context/userContext';
 import { UserOutlined } from '@ant-design/icons';
 
+const { Search } = Input;
 interface ITodos {
   userId: number;
   id: number;
   title: string;
   completed: boolean;
+  userName: string;
 }
 
 const TodosPage = () => {
   const { users } = useContext(UserContext);
   const [todos, setTodos] = useState<ITodos[]>([]);
-  // const [todosTitle, setTodosTitle] = useState();
+  const [searchNameValue, setSearchNameValue] = useState<string>('');
+  const [searchTitleValue, setSearchTitleValue] = useState<string>('');
+  const [selectComplitedValue, setSelectComplitedValue] =
+    useState<boolean>(true);
+
+  const [filteredTodos, setFilteredTodos] = useState<any[]>([]);
 
   const getTodos = () => {
     getRequest(TODOS_ENDPOINT)
-      .then((res) => setTodos(res.data))
+      .then((res: any) => setTodos(res.data))
       .catch((err) =>
         openNotification(err.response.data.error, err.response.data.message)
       );
@@ -33,10 +40,31 @@ const TodosPage = () => {
 
   const { Option } = Select;
 
+  const onSearch = () => {
+    console.log(todos);
+    // const renderSerchItems = todos.filter(todo => todo.title.includes(searchTitleValue));
+    const renderSerchItems = todos.filter(
+      (todo) =>
+        todo.title.includes(searchTitleValue) &&
+        todo.userName.includes(searchNameValue) &&
+        todo.completed === selectComplitedValue
+    );
+    // console.log(searchNameValue,searchTitleValue);
+
+    setTodos(renderSerchItems);
+  };
+
   function handleChange(value: any) {
-    console.log(`selected ${value}`);
+    setSelectComplitedValue(value === 'compleeted' ? true : false);
   }
 
+  useEffect(() => {
+    const items = todos.map((item: any) => ({
+      ...item,
+      userName: `${users.find((user) => user.id === item.userId)?.name}`,
+    }));
+    setTodos(items);
+  }, [users.length]);
   useEffect(() => {
     getTodos();
     // eslint-disable-next-line react-hooks/exhaustive-deps

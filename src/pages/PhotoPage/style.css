@@ -1,0 +1,12 @@
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.total-photos {
+  margin-bottom: 40px;
+}
+
+.gallery .photo-wrapper {
+  margin-bottom: 20px;
+}

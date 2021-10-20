@@ -10,6 +10,7 @@ import AlbumsPage from './pages/Albums';
 import PostsPage from './pages/Posts';
 import TodosPage from './pages/Todos';
 import UsersPage from './pages/Users/index';
+import PhotoPage from './pages/PhotoPage/index';
 
 const Routes = () => {
   return (
