@@ -16,10 +16,19 @@ interface Albums {
   title: string;
 }
 
+interface AlbumsPhoto {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
 const AlbumsPage = () => {
   const history = useHistory();
   const { users } = useContext(UserContext);
   const [albumItems, setAlbumsItems] = useState<Albums[]>([]);
+  const [albumsPhotos, setAlbumsPhotos] = useState<AlbumsPhoto[]>([]);
 
   const getAlbumsItems = () => {
     getRequest(ALBUMS_ENDPOINT)
