@@ -27,6 +27,8 @@
 .current-post {
   width: 100%;
 }
+
 .ant-card-body {
-  width: 100%;
+  margin: 0 auto !important;
+  padding: 10px !important;
 }

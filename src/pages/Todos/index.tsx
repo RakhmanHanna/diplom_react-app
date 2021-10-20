@@ -1,11 +1,20 @@
 import { useContext, useEffect, useState } from 'react';
 import PageWrapper from '../../components/wrappers/PageWrapper/index';
-import { Card, Popover, Checkbox, Avatar, Select, Input, Button } from 'antd';
+import {
+  Card,
+  Popover,
+  Checkbox,
+  Avatar,
+  Select,
+  Input,
+  Button,
+  Space,
+} from 'antd';
 import { getRequest, openNotification } from './../../utils/index';
 import { TODOS_ENDPOINT } from '../../constants/endpoints';
 import './style.css';
 import { UserContext } from '../../context/userContext';
-import { UserOutlined } from '@ant-design/icons';
+import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
@@ -75,21 +84,32 @@ const TodosPage = () => {
     <PageWrapper>
       <>
         <h1>Todos Page</h1>
-        <Select
-          defaultValue="title"
-          style={{ width: 120 }}
-          onChange={handleChange}
-        >
-          <Option value="jack">Jack</Option>
-          <Option value="lucy">lucy</Option>
-        </Select>
-        <Select defaultValue="lucy" style={{ width: 120 }}>
-          <Option value="lucy">Lucy</Option>
-        </Select>
-        <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
-          <Option value="lucy">Lucy</Option>
-        </Select>
+        <Space>
+          <Input
+            value={searchNameValue}
+            onChange={(e) => setSearchNameValue(e.target.value)}
+            placeholder="Name"
+          />
+          <Input
+            value={searchTitleValue}
+            onChange={(e) => setSearchTitleValue(e.target.value)}
+            placeholder="Title"
+          />
+          <Select defaultValue="compleeted" onChange={handleChange}>
+            <Option value="compleeted">compleeted</Option>
+            <Option value="in-procces">in procces</Option>
+          </Select>
+          <Button onClick={onSearch}>
+            <SearchOutlined />
+          </Button>
+        </Space>
+        <h1>Todos Page</h1>
         <div className="todos-row">
+          {filteredTodos.map((todosItem) => {
+            if (todosItem.length) {
+              return <div> Ты все верно сделал</div>;
+            }
+          })}
           {todos.map((item) => {
             return (
               <Card

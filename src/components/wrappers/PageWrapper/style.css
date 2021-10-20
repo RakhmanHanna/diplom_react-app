@@ -10,6 +10,8 @@ h1 {
 }
 .ant-menu-dark.ant-menu-horizontal {
   background-color: rgb(133, 58, 114) !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .ant-menu-item a::before {

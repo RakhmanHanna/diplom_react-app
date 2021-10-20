@@ -6,4 +6,3 @@ export const TODOS_ENDPOINT = `${BASE_URL}/todos`;
 export const USERS_ENDPOINT = `${BASE_URL}/users`;
 export const COMMENTS_ENDPOINT = `${BASE_URL}/comments`;
 export const PHOTOS_ENDPOINT = `${BASE_URL}/photos`;
-export const ALBUMS_PHOTOS = `${BASE_URL}/photos`;

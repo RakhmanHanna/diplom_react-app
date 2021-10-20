@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { getRequest } from '../../utils/index';
-import { ALBUMS_ENDPOINT, ALBUMS_PHOTOS } from '../../constants/endpoints';
+import { ALBUMS_ENDPOINT } from '../../constants/endpoints';
 import PageWrapper from '../../components/wrappers/PageWrapper/index';
 import { Table, Button } from 'antd';
 import { openNotification } from './../../utils/index';
