@@ -24,9 +24,6 @@
 .current-post .ant-card {
   background-color: rgba(0, 0, 0, 0.054);
 }
-.current-post {
-  width: 100%;
-}
 
 .ant-card-body {
   margin: 0 auto !important;

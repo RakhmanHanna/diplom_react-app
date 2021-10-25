@@ -96,8 +96,8 @@ const TodosPage = () => {
             placeholder="Title"
           />
           <Select defaultValue="compleeted" onChange={handleChange}>
-            <Option value="compleeted">compleeted</Option>
-            <Option value="in-procces">in procces</Option>
+            <Option value="compleeted">completed</Option>
+            <Option value="in-procces">in proccess</Option>
           </Select>
           <Button onClick={onSearch}>
             <SearchOutlined />
